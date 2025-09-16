@@ -45,3 +45,14 @@ position: relative;
 line-height: 1;
 top: -34px;
 }
+.weather-temp-container {
+  display: flex;
+  align-items: center;
+}
+
+.weather-icon {
+  width: 64px;
+  height: 64px;
+  margin-right: 10px;
+}
+

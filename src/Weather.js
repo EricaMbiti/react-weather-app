@@ -11,24 +11,28 @@ function handleResponse(response){
 console.log(response.data);
 
 setWeatherData({
-ready:true,
-temperature:response.data.main.temp,
-date:new Date(response.data.dt*1000),
-humidity:response.data.main.humidity,
-wind:response.data.wind.speed,
-description:response.data.weather[0].description,
-icon:response.data.weather[0].icon,
-city:response.data.name,
+
+
+  ready: true,
+      temperature: response.data.temperature,
+      condition: response.data.condition.description,
+      humidity: response.data.temperature.humidity,
+      wind: response.data.wind.speed,
+      icon: response.data.condition.icon,
+      iconUrl: response.data.condition.icon_url,
+      city: response.data.city,
+      date: new Date(response.data.time * 1000)
 
     });
 }
 
 function search(){
 
-const apiKey = "667d9f573c8af4c33457be5d561a9148";
+const apiKey="5t2d0f5d9d5f13f50593407dab36oc25"
+let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+axios.get(apiUrl).then(handleResponse);
 
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(handleResponse); 
+
 
 
 }
