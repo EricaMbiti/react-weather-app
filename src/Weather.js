@@ -1,5 +1,6 @@
 import React ,{useState}from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 
@@ -31,9 +32,6 @@ function search(){
 const apiKey="5t2d0f5d9d5f13f50593407dab36oc25"
 let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
 axios.get(apiUrl).then(handleResponse);
-
-
-
 
 }
 
@@ -71,6 +69,7 @@ return(
 </form>
 <WeatherInfo data={weatherData}/>
 
+<WeatherForecast/>
 
 
 
